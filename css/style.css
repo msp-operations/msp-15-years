@@ -1,11 +1,7 @@
-/* MSP 15 Years · design system after the UM50 recipe (own build, free fonts) */
+/* MSP 15 Years · the MSP15 anniversary identity: cream ground, ink/coral/amber
+   linework, varsity outline numerals, all Archivo. Palette from
+   Operations\Projects\MSP15 Anneversary\MSP15 Logo designs\Final palette designs. */
 
-@font-face {
-  font-family: "Fraunces";
-  src: url("../assets/fonts/fraunces-latin-var.woff2") format("woff2");
-  font-weight: 400 460;
-  font-display: swap;
-}
 @font-face {
   font-family: "Archivo";
   src: url("../assets/fonts/archivo-latin-var.woff2") format("woff2");
@@ -14,18 +10,12 @@
 }
 
 :root {
-  --navy: #000933;
-  --blue-mid: #355bd0;
-  --blue-light: #beddf7;
-  --green-dark: #003538;
-  --green-mid: #0f7564;
-  --green-light: #d9ffd6;
-  --red-dark: #4b0602;
-  --red-mid: #ea7c69;
-  --red-light: #f9c4b8;
-  --gold: #a9955c;
-  --off-white: #fcfcfc;
-  --serif: "Fraunces", "Times New Roman", serif;
+  --ink: #101542;
+  --coral: #e8604c;
+  --amber: #f0b23e;
+  --cream: #f5eedd;
+  --panel: #fdf8ec;
+  --ink-soft: rgba(16, 21, 66, 0.72);
   --sans: "Archivo", Arial, sans-serif;
 }
 
@@ -37,8 +27,8 @@ html { scroll-padding-top: 7rem; }
 }
 
 body {
-  background: var(--navy);
-  color: var(--off-white);
+  background: var(--cream);
+  color: var(--ink);
   font-family: var(--sans);
   font-size: 1.25rem;
   line-height: 1.5;
@@ -50,20 +40,21 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 [hidden] { display: none !important; }
 a { color: inherit; }
-:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--amber); color: var(--ink); }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
 
 .skip {
   position: absolute; left: 1rem; top: -4rem; z-index: 20;
-  background: var(--off-white); color: var(--navy);
+  background: var(--ink); color: var(--cream);
   padding: .5rem 1rem; border-radius: 99rem; text-decoration: none;
   transition: top .2s;
 }
 .skip:focus { top: 1rem; }
 
-/* ---------- the double line, the whole identity ---------- */
+/* ---------- the double rule: ink over coral ---------- */
 .rule-pair {
   display: block; flex: 1 1 auto; height: 9px; min-width: 1rem;
-  background: linear-gradient(var(--gold) 0 3px, transparent 3px 6px, var(--red-mid) 6px 9px);
+  background: linear-gradient(var(--ink) 0 3px, transparent 3px 7px, var(--coral) 7px 9px);
 }
 .rule-pair--full { width: 100%; }
 
@@ -75,35 +66,51 @@ a { color: inherit; }
   text-decoration: none; line-height: 1;
 }
 .mark-msp, .mark-years {
-  font-weight: 700; letter-spacing: .18em; font-size: 1.35rem;
-  color: var(--off-white); text-transform: uppercase;
+  font-weight: 800; letter-spacing: .18em; font-size: 1.35rem;
+  color: var(--ink); text-transform: uppercase;
 }
-.mark-years { color: var(--gold); font-size: .95rem; letter-spacing: .3em; }
-.mark-15 { width: 3.4rem; height: auto; transform: translateY(.35rem); }
+.mark-years { font-size: 1.05rem; letter-spacing: .3em; }
+.mark-15 { width: 3.2rem; height: auto; transform: translateY(.5rem); }
 
 .head-nav {
   display: flex; justify-content: center; align-items: center;
   gap: clamp(1rem, 3vw, 2.25rem);
   padding: 1rem 1.25rem 0; flex-wrap: wrap;
 }
-.head-nav a { text-decoration: none; font-size: 1rem; }
-.head-nav a:not(.btn):hover { color: var(--gold); }
+.head-nav a { text-decoration: none; font-size: 1rem; font-weight: 700; }
+.head-nav a:not(.btn):hover { color: var(--coral); }
 
 /* ---------- type ---------- */
-.two-line { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .1em; }
-.line-serif {
-  font-family: var(--serif); font-weight: 430; color: var(--red-mid);
-  letter-spacing: -0.02em; font-size: inherit; line-height: 1.05;
+.two-line {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: .05em; font-weight: 800; color: var(--ink); letter-spacing: -0.01em;
+  position: relative; padding-bottom: 1.1rem;
 }
-.line-sans { font-weight: 700; color: var(--gold); line-height: 1.05; letter-spacing: -0.01em; }
-h1.two-line { font-size: clamp(2.25rem, 6.5vw, 4.5rem); }
-h2.two-line { font-size: clamp(1.75rem, 4.5vw, 3rem); margin-bottom: 2.5rem; }
+.line-serif, .line-sans { line-height: 1.05; }
+.two-line::after {
+  content: ""; position: absolute; bottom: 0; left: 50%;
+  width: 5.5rem; height: 3px; background: var(--coral);
+  transform: translateX(-50%);
+}
+h1.two-line { font-size: clamp(2.25rem, 6.5vw, 4.25rem); }
+h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
+
+.kicker {
+  font-size: .95rem; font-weight: 700; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
 
 /* ---------- hero ---------- */
 .hero {
   max-width: 58rem; margin-inline: auto; text-align: center;
-  padding: clamp(4.5rem, 12vh, 9rem) clamp(1.25rem, 4vw, 2.5rem) 4rem;
-  display: flex; flex-direction: column; align-items: center; gap: 2rem;
+  padding: clamp(2.5rem, 8vh, 6rem) clamp(1.25rem, 4vw, 2.5rem) 4rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1.75rem;
+}
+.hero-logo { width: clamp(72px, 10vw, 104px); }
+.hero-15 { width: clamp(170px, 28vw, 290px); height: auto; overflow: visible; }
+@media (max-width: 640px) {
+  .hero { gap: 1.1rem; padding-top: 1.75rem; padding-bottom: 2.5rem; }
+  .hero-logo { display: none; }
 }
 .hero-pitch { max-width: 35rem; }
 .date-line { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
@@ -112,48 +119,59 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 3rem); margin-bottom: 2.5rem; }
 /* ---------- chips & buttons ---------- */
 .chip {
   display: inline-block; font-size: .875rem; font-weight: 700;
-  padding: .35rem .8rem; border-radius: .25rem; letter-spacing: .02em;
+  padding: .35rem .8rem; border-radius: .5rem; letter-spacing: .02em;
 }
-.chip-dark { background: var(--navy); color: var(--off-white); }
+.chip-dark { background: var(--ink); color: var(--cream); }
 .card .chip-dark { margin-bottom: 1rem; }
 
 .btn {
   display: inline-block; font-family: var(--sans); font-weight: 700; font-size: 1rem;
   padding: .875rem 1.5rem; border-radius: 99rem; text-decoration: none;
-  border: 1px solid transparent; cursor: pointer; line-height: 1.3;
+  border: 2px solid var(--ink); cursor: pointer; line-height: 1.3;
 }
 .btn-small { padding: .5rem 1.1rem; font-size: .9rem; }
-.btn-primary { background: var(--red-mid); color: var(--navy); }
-.btn-ghost { border-color: var(--red-mid); color: var(--red-mid); background: transparent; }
-.btn-dark { background: var(--navy); color: var(--off-white); }
+.btn-primary { background: var(--ink); color: var(--cream); }
+.btn-ghost { color: var(--ink); background: transparent; }
+.btn-dark { background: var(--ink); color: var(--cream); }
 @media (prefers-reduced-motion: no-preference) {
-  .btn { transition: transform .3s cubic-bezier(.175, .885, .374, 1.467), box-shadow .3s; }
-  .btn:hover { transform: scale(1.05) rotate(.6deg); }
+  .btn { transition: transform .25s ease, background .2s, color .2s; }
+  .btn:hover { transform: scale(1.03); }
 }
-.btn-primary:hover { box-shadow: 0 0 0 2px var(--navy), 0 0 0 4px var(--gold); }
-.btn-ghost:hover { background: var(--red-mid); color: var(--navy); }
+.btn-primary:hover, .btn-dark:hover { background: var(--coral); color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--cream); }
 
 /* ---------- sections & cards ---------- */
 .section {
   max-width: 70rem; margin-inline: auto;
-  padding: 3rem clamp(1.25rem, 4vw, 2.5rem);
+  padding: 4rem clamp(1.25rem, 4vw, 2.5rem);
 }
-.card { border-radius: 2rem; padding: clamp(1.5rem, 4vw, 2.5rem); }
-.card h2, .card h3 { line-height: 1.15; margin-bottom: .75rem; font-size: 1.6rem; }
+@media (max-width: 767px) { .section { padding-block: 2rem; } }
+.card {
+  background: var(--panel); color: var(--ink);
+  border: 2px solid var(--ink); border-radius: 1.75rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+.card h2, .card h3 { line-height: 1.15; margin-bottom: .75rem; font-size: 1.6rem; font-weight: 800; }
 .card p + p { margin-top: 1rem; }
-.card--blue { background: var(--blue-light); color: var(--navy); }
-.card--red { background: var(--red-light); color: var(--red-dark); }
-.card--green { background: var(--green-light); color: var(--green-dark); }
-.card--gold { background: var(--gold); color: var(--navy); }
+
+/* accent cycle: ink / coral / amber, carried by borders and chips */
+.card--red { border-color: var(--coral); }
+.card--red .chip-dark { background: var(--coral); color: var(--ink); }
+.card--green { border-color: var(--amber); }
+.card--green .chip-dark { background: var(--amber); color: var(--ink); }
+.card--gold { background: var(--amber); border-color: var(--ink); }
+
+/* the RSVP card gets the loud treatment */
+#rsvp .card { background: var(--coral); border-color: var(--ink); }
 
 #occasion .card, #practical .card, #rsvp .card { max-width: 58rem; margin-inline: auto; }
 
-/* programme grid, on the arc */
+/* programme grid, with the orbit motif behind it */
 .section-arc {
   position: relative;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath d='M-40 320 C 360 60 1080 60 1480 320' fill='none' stroke='%23ea7c69' stroke-width='3'/%3E%3Cpath d='M-40 320 C 360 76 1080 76 1480 320' fill='none' stroke='%23a9955c' stroke-width='3'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: 50% 100%; background-size: 130% auto;
-  padding-bottom: 5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 560'%3E%3Cg fill='none'%3E%3Cellipse cx='1120' cy='150' rx='380' ry='120' stroke='%23f0b23e' stroke-width='3' transform='rotate(-14 1120 150)'/%3E%3Ccircle cx='1420' cy='70' r='9' fill='%23e8604c'/%3E%3Cellipse cx='240' cy='470' rx='300' ry='100' stroke='%23101542' stroke-width='2.5' transform='rotate(-12 240 470)'/%3E%3Ccircle cx='-10' cy='430' r='8' fill='%23f0b23e'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 50% 100%; background-size: 115% auto;
+  padding-bottom: 8rem;
 }
 .prog-grid {
   display: grid; gap: 1rem;
@@ -167,19 +185,22 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 3rem); margin-bottom: 2.5rem; }
 /* photos */
 .photo-grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
 @media (max-width: 767px) { .photo-grid { grid-template-columns: 1fr; } }
-.photo-grid figure img { border-radius: 1.5rem; width: 100%; object-fit: cover; }
-.photo-grid figcaption { font-size: .95rem; margin-top: .6rem; color: var(--blue-light); }
-.photos-note { margin-top: 1.5rem; text-align: center; color: var(--gold); font-size: 1rem; }
+.photo-grid figure img {
+  border-radius: 1.5rem; width: 100%; object-fit: cover;
+  border: 2px solid var(--ink);
+}
+.photo-grid figcaption { font-size: .95rem; margin-top: .6rem; color: var(--ink-soft); }
+.photos-note { margin-top: 1.5rem; text-align: center; color: var(--ink-soft); font-size: 1rem; }
 
 /* facts */
 .fact-list { list-style: none; }
-.fact-list li { padding: .55rem 0; border-bottom: 1px solid rgba(0, 53, 56, .18); font-size: 1.05rem; }
+.fact-list li { padding: .55rem 0; border-bottom: 1px solid rgba(16, 21, 66, .18); font-size: 1.05rem; }
 .fact-list li:last-child { border-bottom: 0; }
 .fact-list a { color: inherit; font-weight: 700; }
 
 /* rsvp */
 .rsvp-actions { margin-top: 1.25rem; }
-.rsvp-note { font-size: .95rem; margin-top: 1.25rem; opacity: .85; }
+.rsvp-note { font-size: .95rem; margin-top: 1.25rem; }
 
 /* calendar + share */
 .cal-actions, .share-actions {
@@ -192,10 +213,19 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 3rem); margin-bottom: 2.5rem; }
 /* faq */
 .faq-list { display: grid; gap: 1rem; max-width: 58rem; margin-inline: auto; }
 .faq-list details { padding: 1.25rem 1.75rem; border-radius: 1.5rem; }
+.faq-list details:hover { background: #fffdf4; }
 .faq-list summary {
   font-weight: 700; font-size: 1.15rem; cursor: pointer;
-  list-style-position: outside; padding-left: .25rem;
+  list-style: none; position: relative; padding-right: 2rem;
 }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: ""; position: absolute; right: .25rem; top: .3em;
+  width: .6em; height: .6em;
+  border-right: 3px solid var(--coral); border-bottom: 3px solid var(--coral);
+  transform: rotate(45deg); transition: transform .2s;
+}
+.faq-list details[open] summary::after { transform: rotate(225deg); top: .5em; }
 .faq-list details[open] summary { margin-bottom: .6rem; }
 .faq-list p { font-size: 1rem; }
 
@@ -205,18 +235,26 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 3rem); margin-bottom: 2.5rem; }
   display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;
 }
 .site-foot .rule-pair--full { margin-bottom: 2rem; }
-.foot-line { font-size: 1rem; color: var(--blue-light); }
-.privacy { max-width: 42rem; font-size: .9rem; color: var(--blue-light); }
-.privacy summary { cursor: pointer; font-weight: 700; color: var(--off-white); }
+.foot-logos { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+.foot-logos img { width: auto; }
+.foot-logos img:first-child { height: 96px; }
+.foot-logos img:last-child { height: 40px; }
+.foot-line { font-size: 1rem; color: var(--ink-soft); }
+.foot-line a { font-weight: 700; color: var(--ink); }
+.privacy { max-width: 42rem; font-size: .9rem; color: var(--ink-soft); }
+.privacy summary { cursor: pointer; font-weight: 700; color: var(--ink); }
 .privacy p { margin-top: .75rem; text-align: left; }
-.foot-copy { font-size: .875rem; color: var(--gold); letter-spacing: .05em; }
+.foot-copy {
+  font-size: .875rem; color: var(--ink); font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase;
+}
 
-/* ---------- reveals ---------- */
+/* ---------- reveals (gated on html.js so no-JS visitors see everything) ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal {
+  .js .reveal {
     opacity: 0; transform: translateY(24px);
     transition: opacity .6s ease, transform .6s ease;
     transition-delay: var(--d, 0s);
   }
-  .reveal.in { opacity: 1; transform: none; }
+  .js .reveal.in { opacity: 1; transform: none; }
 }

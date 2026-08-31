@@ -10,3 +10,6 @@ assets/img/*-src.*
 
 # Python
 __pycache__/
+
+# Render intermediates (screenshots) never get committed.
+tools/*.png

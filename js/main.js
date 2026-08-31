@@ -1,4 +1,10 @@
-/* MSP 15 Years · page behaviour. All state lives in CONFIG; edit, push, done. */
+/* MSP 15 Years · page behaviour. All state lives in CONFIG; edit, push, done.
+   The page must remain fully readable with this file absent or broken: reveal
+   hiding is gated on the .js class below, share/calendar links are static HTML,
+   and the mail links carry a noscript fallback. */
+
+// Gate all JS-dependent styling; must be the first statement.
+document.documentElement.classList.add("js");
 
 const CONFIG = {
   // Set to the Qualtrics registration URL when it exists; null = "opens soon" state.
@@ -12,20 +18,32 @@ const CONFIG = {
   mailDomain: "maastrichtuniversity.nl",
 };
 
-// --- RSVP state ---
+// --- RSVP state (forward the visitor's ?src channel tag onto the form URL) ---
 if (CONFIG.rsvpUrl) {
-  document.querySelectorAll(".js-rsvp").forEach((a) => (a.href = CONFIG.rsvpUrl));
+  const src = new URLSearchParams(location.search).get("src");
+  const url = src
+    ? CONFIG.rsvpUrl + (CONFIG.rsvpUrl.includes("?") ? "&" : "?") + "src=" + encodeURIComponent(src)
+    : CONFIG.rsvpUrl;
+  document.querySelectorAll(".js-rsvp").forEach((a) => (a.href = url));
   const link = document.querySelector(".js-rsvp-link");
-  link.href = CONFIG.rsvpUrl;
-  link.hidden = false;
-  document.querySelector(".js-rsvp-open").hidden = false;
-  document.querySelector(".js-rsvp-closed").hidden = true;
+  if (link) {
+    link.href = url;
+    link.hidden = false;
+  }
+  const open = document.querySelector(".js-rsvp-open");
+  if (open) open.hidden = false;
+  const closed = document.querySelector(".js-rsvp-closed");
+  if (closed) closed.hidden = true;
 }
 
 // --- counter ---
 if (CONFIG.attending !== null) {
-  document.querySelector(".js-count").textContent = CONFIG.attending;
-  document.querySelector("#counter").hidden = false;
+  const count = document.querySelector(".js-count");
+  const section = document.querySelector("#counter");
+  if (count && section) {
+    count.textContent = CONFIG.attending;
+    section.hidden = false;
+  }
 }
 
 // --- mail links ---
@@ -35,24 +53,12 @@ document.querySelectorAll(".js-mail").forEach((a) => {
   if (a.textContent === "email us") a.textContent = mail;
 });
 
-// --- share buttons ---
-const shareMsg =
-  "MSP is turning 15 and everyone is invited back to Maastricht for anniversary drinks on Saturday 10 October. Are you going? " +
-  CONFIG.shareUrl;
-const wa = document.querySelector(".js-share-wa");
-if (wa) wa.href = "https://wa.me/?text=" + encodeURIComponent(shareMsg);
-const li = document.querySelector(".js-share-li");
-if (li) li.href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(CONFIG.shareUrl);
-const sm = document.querySelector(".js-share-mail");
-if (sm)
-  sm.href =
-    "mailto:?subject=" + encodeURIComponent("MSP turns 15, drinks in Maastricht on 10 October") +
-    "&body=" + encodeURIComponent(shareMsg);
+// --- copy-link button (share/calendar links are static HTML) ---
 const copyBtn = document.querySelector(".js-copy");
 if (copyBtn)
   copyBtn.addEventListener("click", async () => {
     try {
-      await navigator.clipboard.writeText(CONFIG.shareUrl);
+      await navigator.clipboard.writeText(CONFIG.shareUrl + "?src=copy");
       copyBtn.textContent = "Copied!";
       setTimeout(() => (copyBtn.textContent = "Copy the link"), 2000);
     } catch {
@@ -60,18 +66,22 @@ if (copyBtn)
     }
   });
 
-// --- scroll reveals (no-JS and reduced-motion users simply see everything) ---
-const io = new IntersectionObserver(
-  (entries) => {
-    for (const e of entries)
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        io.unobserve(e.target);
-      }
-  },
-  { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
-);
-document.querySelectorAll(".reveal").forEach((el, i) => {
-  el.style.setProperty("--d", `${(i % 3) * 0.08}s`);
-  io.observe(el);
-});
+// --- scroll reveals (hiding only applies under html.js, so no-JS sees everything) ---
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries)
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el, i) => {
+    el.style.setProperty("--d", `${(i % 3) * 0.08}s`);
+    io.observe(el);
+  });
+} else {
+  document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+}
