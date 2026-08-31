@@ -210,6 +210,16 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
 .photo-grid figcaption { font-size: .95rem; margin-top: .6rem; color: var(--ink-soft); }
 .photos-note { margin-top: 1.5rem; text-align: center; color: var(--ink-soft); font-size: 1rem; }
 
+/* getting-there page */
+.photo-grid--single { grid-template-columns: 1fr; max-width: 58rem; margin-inline: auto; }
+.route-steps { margin: 1.25rem 0 0 1.35rem; }
+.route-steps li { padding: .4rem 0; font-size: 1.05rem; }
+.route-steps li::marker { font-weight: 800; color: var(--coral); }
+.route-note { margin-top: 1.25rem; font-size: 1rem; color: var(--ink-soft); }
+#walk .card, #arrival .card { max-width: 58rem; margin-inline: auto; }
+.ways-grid h3 { font-size: 1.35rem; }
+.ways-grid p { font-size: 1rem; }
+
 /* facts */
 .fact-list { list-style: none; }
 .fact-list li { padding: .55rem 0; border-bottom: 1px solid rgba(16, 21, 66, .18); font-size: 1.05rem; }
