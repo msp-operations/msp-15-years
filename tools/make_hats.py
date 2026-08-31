@@ -16,12 +16,7 @@ ARCH = Path(r"c:\dev\MSP\_Archive\2. Alumni Office MSP - MJ\Graduation Photos")
 
 MANIFEST = [
     (HTP / "2014 - hat throw on stage [UNM 255].jpg", "The class of 2014 throwing their caps on the theatre stage"),
-    (HTP / "2015 - hat throw burst 1 [173].jpg", "The class of 2015 winding up for the throw"),
     (HTP / "2015 - hat throw burst 3 [175].jpg", "Peak of the 2015 toss, in black and white"),
-    (HTP / "2015 - hat throw burst 4 [177].jpg", "Caps at their highest above the class of 2015"),
-    (HTP / "2015 - hat throw burst 5 (colour) [179].jpg", "Caps falling back down, 2015"),
-    (HTP / "2015 - hat throw burst 6 [180].jpg", "The class of 2015 laughing as the caps land"),
-    (HTP / "2015 - OFFICIAL hat throw [2015 Hats].jpg", "The official frame of the 2015 toss"),
     (HTP / "2016 Jan - OFFICIAL hat throw [2016 January Throw].jpg", "Caps against the winter graduation screen, January 2016"),
     (HTP / "2016 - OFFICIAL hat throw [2016 Hats].jpg", "The class of 2016 filling a gothic hall with caps"),
     (ARCH / "Graduation ceremony and reception Feb 2017" / "H4A2283A1.jpg", "A winter toss on the church steps, February 2017"),
@@ -32,13 +27,8 @@ MANIFEST = [
     (HTP / "2021 - hat throw group jump [H4A0595A1].jpg", "The 2021 cohort's group jump outside the faculty building"),
     (HTP / "2022 - OFFICIAL hat throw [2022 Hats].jpg", "Caps in front of the MSP globe, class of 2022"),
     (HTP / "2023 - OFFICIAL hat throw [2023 Hats].jpg", "The class of 2023 filling the auditorium with caps"),
-    (HTP / "2024 - hat throw on stage 1 [SIEMCLERX 20240705 Graduation-MSP 477 HR].jpg", "The class of 2024 launches"),
-    (HTP / "2024 - hat throw on stage 2 [SIEMCLERX 20240705 Graduation-MSP 480 HR].jpg", "Caps rising above the class of 2024"),
     (ARCH / "Grad 24" / "SIEMCLERX 20240705 Graduation-MSP 483 HR.jpg", "A dense cloud of caps above the class of 2024"),
-    (HTP / "2024 - hat throw on stage 3 [SIEMCLERX 20240705 Graduation-MSP 484 HR].jpg", "Caps scattering across the hall, 2024"),
-    (ARCH / "Grad 24" / "SIEMCLERX 20240705 Graduation-MSP 485 HR.jpg", "Caps at their highest, 2024"),
     (HTP / "2024 - hat throw on stage 4 [SIEMCLERX 20240705 Graduation-MSP 488 HR].jpg", "The 2024 toss coming back down"),
-    (HTP / "2024 - OFFICIAL hat throw [2024 Hats].jpg", "The official frame of the class of 2024"),
     (HTP / "2024 - mini ceremony hat throw [SIEMCLERX 20240705 Graduation-MSP 616 HR].jpg", "The mini-ceremony group's own toss, July 2024"),
 ]
 
