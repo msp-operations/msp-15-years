@@ -6,7 +6,7 @@
 *.msg
 
 # Source images (full-size originals); only stripped derivatives are committed.
-assets/img/*-src.*
+assets/img/**/*-src.*
 
 # Python
 __pycache__/
