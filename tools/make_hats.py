@@ -28,7 +28,6 @@ MANIFEST = [
     (HTP / "2022 - OFFICIAL hat throw [2022 Hats].jpg", "Caps in front of the MSP globe, class of 2022"),
     (HTP / "2023 - OFFICIAL hat throw [2023 Hats].jpg", "The class of 2023 filling the auditorium with caps"),
     (ARCH / "Grad 24" / "SIEMCLERX 20240705 Graduation-MSP 483 HR.jpg", "A dense cloud of caps above the class of 2024"),
-    (HTP / "2024 - hat throw on stage 4 [SIEMCLERX 20240705 Graduation-MSP 488 HR].jpg", "The 2024 toss coming back down"),
     (HTP / "2024 - mini ceremony hat throw [SIEMCLERX 20240705 Graduation-MSP 616 HR].jpg", "The mini-ceremony group's own toss, July 2024"),
 ]
 
