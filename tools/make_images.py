@@ -13,6 +13,8 @@ WIDTHS = (800, 1600)
 JOBS = {
     "building-src.jpg": "building",
     "maastricht-src.jpg": "maastricht",
+    "oldbuilding-src.jpg": "oldbuilding",
+    "tapijn-src.jpg": "tapijn",
 }
 
 def strip(im: Image.Image) -> Image.Image:
