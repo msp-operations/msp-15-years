@@ -199,14 +199,6 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
   background: var(--panel); scroll-snap-align: center; margin: 0;
 }
 .hat-card img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.hat-card .chip { position: absolute; top: .75rem; left: .75rem; z-index: 1; margin: 0; }
-.hat-card--missing {
-  flex: 0 0 160px; border: 2px dashed var(--coral); background: transparent;
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  gap: .6rem; padding: 1rem; text-align: center;
-}
-.hat-card--missing .chip { position: static; }
-.hat-card--missing p { font-size: .85rem; color: var(--ink-soft); }
 
 /* photos */
 .photo-grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
