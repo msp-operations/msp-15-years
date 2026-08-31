@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Fraunces"; src: url("../assets/fonts/fraunces-latin-var.woff2") format("woff2"); font-weight: 400 460; }
+  @font-face { font-family: "Archivo"; src: url("../assets/fonts/archivo-latin-var.woff2") format("woff2"); font-weight: 100 900; }
+  * { margin: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; background: #000933; color: #fcfcfc;
+    font-family: "Archivo", Arial, sans-serif; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px;
+  }
+  .rule { width: 100%; height: 9px;
+    background: linear-gradient(#a9955c 0 3px, transparent 3px 6px, #ea7c69 6px 9px); }
+  .rule.top { position: absolute; top: 48px; }
+  .rule.bottom { position: absolute; bottom: 48px; }
+  .mark { display: flex; align-items: baseline; gap: 18px; }
+  .mark span { font-weight: 700; letter-spacing: .18em; font-size: 44px; }
+  .mark .yrs { color: #a9955c; font-size: 30px; letter-spacing: .3em; }
+  svg { width: 110px; transform: translateY(10px); }
+  h1 { display: flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1.02; }
+  .serif { font-family: "Fraunces", serif; font-weight: 430; color: #ea7c69; font-size: 78px; letter-spacing: -0.02em; }
+  .sans { font-weight: 700; color: #a9955c; font-size: 78px; letter-spacing: -0.01em; }
+  .chips { display: flex; gap: 14px; }
+  .chip { background: #beddf7; color: #000933; font-weight: 700; font-size: 27px;
+    padding: 10px 26px; border-radius: 8px; }
+  .invited { font-size: 30px; color: #beddf7; letter-spacing: .02em; }
+</style>
+</head>
+<body>
+  <div class="rule top"></div>
+  <div class="mark">
+    <span>MSP</span>
+    <svg viewBox="0 0 120 92">
+      <g fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#ea7c69" transform="translate(0 7)">
+          <path d="M18 30 L36 14 M36 14 V78"/><path d="M100 14 H64 V42 H80 A18 18 0 0 1 80 78 H60"/>
+        </g>
+        <g stroke="#a9955c">
+          <path d="M18 30 L36 14 M36 14 V78"/><path d="M100 14 H64 V42 H80 A18 18 0 0 1 80 78 H60"/>
+        </g>
+      </g>
+    </svg>
+    <span class="yrs">YEARS</span>
+  </div>
+  <h1>
+    <span class="serif">You're invited:</span>
+    <span class="sans">anniversary drinks</span>
+  </h1>
+  <div class="chips">
+    <span class="chip">Sat 10 October 2026</span>
+    <span class="chip">from 15:00</span>
+    <span class="chip">Tapijn, Maastricht</span>
+  </div>
+  <div class="invited">All MSP alumni &amp; staff · free</div>
+  <div class="rule bottom"></div>
+</body>
+</html>
