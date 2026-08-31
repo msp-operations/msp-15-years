@@ -106,15 +106,12 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
   padding: clamp(2.5rem, 8vh, 6rem) clamp(1.25rem, 4vw, 2.5rem) 4rem;
   display: flex; flex-direction: column; align-items: center; gap: 1.75rem;
 }
-.hero-lockup {
-  display: flex; align-items: center; justify-content: center;
-  gap: clamp(.9rem, 3vw, 1.75rem);
-}
-.hero-logo { width: clamp(76px, 11vw, 118px); }
-.hero-15 { width: clamp(150px, 24vw, 250px); height: auto; overflow: visible; }
+/* the lockup: the outline 15 centred, the round logo faded behind it */
+.hero-lockup { position: relative; display: grid; place-items: center; }
+.hero-logo { position: absolute; width: clamp(200px, 31vw, 320px); opacity: .15; }
+.hero-15 { position: relative; width: clamp(165px, 25vw, 260px); height: auto; overflow: visible; }
 @media (max-width: 640px) {
   .hero { gap: 1.1rem; padding-top: 1.75rem; padding-bottom: 2.5rem; }
-  .hero-logo { width: 64px; }
 }
 .hero-pitch { max-width: 35rem; }
 .date-line { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
