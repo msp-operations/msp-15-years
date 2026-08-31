@@ -177,6 +177,19 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
   background-repeat: no-repeat; background-position: 50% 100%; background-size: 115% auto;
   padding-bottom: 8rem;
 }
+/* orbit accents for other sections: same motif, lighter touch. The rule of the
+   house: lines may pass behind solid cards and photos, never behind bare text,
+   so these sit at mid-height where the section's cards are. */
+.arc-tr {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 300'%3E%3Cg fill='none'%3E%3Cellipse cx='660' cy='55' rx='360' ry='105' stroke='%23f0b23e' stroke-width='3' transform='rotate(-12 660 55)'/%3E%3Ccircle cx='330' cy='140' r='8' fill='%23e8604c'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 100% 62%; background-size: min(52rem, 95%) auto;
+}
+.arc-bl {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 300'%3E%3Cg fill='none'%3E%3Cellipse cx='140' cy='245' rx='330' ry='95' stroke='%23e8604c' stroke-width='2.5' transform='rotate(10 140 245)'/%3E%3Ccircle cx='470' cy='160' r='8' fill='%23f0b23e'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 0 88%; background-size: min(48rem, 90%) auto;
+}
+#share.arc-tr { background-position: 100% 100%; background-size: min(38rem, 75%) auto; }
+
 .prog-grid {
   display: grid; gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
