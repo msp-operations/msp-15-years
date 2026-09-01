@@ -12,7 +12,7 @@ const CONFIG = {
   // Set to the current registration count once it passes ~25; null hides the counter.
   attending: null,
   // The canonical shareable URL of this page (update if a custom domain lands).
-  shareUrl: "https://msp-operations.github.io/msp-15-years/",
+  shareUrl: "https://msp15.nl/",
   // Contact mailbox, assembled at runtime to keep scrapers off the raw HTML.
   mailUser: "msp-alumni",
   mailDomain: "maastrichtuniversity.nl",
