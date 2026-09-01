@@ -10,7 +10,7 @@ document.documentElement.classList.add("js");
 const splash = document.querySelector(".splash");
 if (splash) {
   try {
-    if (sessionStorage.getItem("msp15-splash")) splash.remove();
+    if (location.search.includes("nosplash") || sessionStorage.getItem("msp15-splash")) splash.remove();
     else sessionStorage.setItem("msp15-splash", "1");
   } catch {
     // storage unavailable: keep the splash, CSS dismisses it on its own
@@ -50,10 +50,8 @@ if (CONFIG.rsvpUrl) {
     link.rel = "noopener";
     link.hidden = false;
   }
-  const open = document.querySelector(".js-rsvp-open");
-  if (open) open.hidden = false;
-  const closed = document.querySelector(".js-rsvp-closed");
-  if (closed) closed.hidden = true;
+  document.querySelectorAll(".js-rsvp-open").forEach((el) => (el.hidden = false));
+  document.querySelectorAll(".js-rsvp-closed").forEach((el) => (el.hidden = true));
 }
 
 // --- counter ---
