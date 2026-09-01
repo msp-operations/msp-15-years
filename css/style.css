@@ -295,6 +295,41 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
   text-transform: uppercase;
 }
 
+/* ---------- splash: the 15 with the logo spinning behind it, rules sweeping in.
+   Gated on html.js, auto-dismissed by CSS animation (no JS needed to escape it),
+   skipped entirely under reduced motion. ---------- */
+.splash { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .splash {
+    display: grid; place-items: center;
+    position: fixed; inset: 0; z-index: 100;
+    background: var(--cream); overflow: hidden;
+    animation: splash-out .55s ease 2.2s forwards;
+  }
+  .js body:has(.splash) { overflow: hidden; }
+  .splash-lockup {
+    position: relative; display: grid; place-items: center;
+    animation: splash-pop .6s ease-out both;
+  }
+  .splash-logo {
+    position: absolute; width: clamp(240px, 38vw, 380px); opacity: .18;
+    animation: splash-spin 16s linear infinite;
+  }
+  .splash-15 { position: relative; width: clamp(190px, 30vw, 300px); height: auto; overflow: visible; }
+  .splash-rules {
+    position: absolute; left: 0; width: 100%; height: 9px;
+    background: linear-gradient(var(--ink) 0 3px, transparent 3px 7px, var(--coral) 7px 9px);
+  }
+  .splash-rules--a { top: 17%; animation: rules-in-l .9s ease-out both, rules-drift 5s ease-in-out .9s infinite alternate; }
+  .splash-rules--b { bottom: 17%; animation: rules-in-r .9s ease-out both, rules-drift 5s ease-in-out .9s infinite alternate-reverse; }
+  @keyframes splash-out { to { opacity: 0; visibility: hidden; } }
+  @keyframes splash-pop { from { opacity: 0; transform: scale(.9); } }
+  @keyframes splash-spin { to { transform: rotate(360deg); } }
+  @keyframes rules-in-l { from { transform: translateX(-100%); } }
+  @keyframes rules-in-r { from { transform: translateX(100%); } }
+  @keyframes rules-drift { from { translate: -1.5% 0; } to { translate: 1.5% 0; } }
+}
+
 /* ---------- reveals (gated on html.js so no-JS visitors see everything) ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal {

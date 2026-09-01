@@ -6,6 +6,20 @@
 // Gate all JS-dependent styling; must be the first statement.
 document.documentElement.classList.add("js");
 
+// --- splash: play once per session, remove from the DOM once faded ---
+const splash = document.querySelector(".splash");
+if (splash) {
+  try {
+    if (sessionStorage.getItem("msp15-splash")) splash.remove();
+    else sessionStorage.setItem("msp15-splash", "1");
+  } catch {
+    // storage unavailable: keep the splash, CSS dismisses it on its own
+  }
+  splash.addEventListener("animationend", (e) => {
+    if (e.animationName === "splash-out") splash.remove();
+  });
+}
+
 const CONFIG = {
   // Set to the Qualtrics registration URL when it exists; null = "opens soon" state.
   rsvpUrl: null,
