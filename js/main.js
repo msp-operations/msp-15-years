@@ -84,6 +84,38 @@ if (copyBtn)
     }
   });
 
+// --- dot nav: highlight the section crossing the middle of the viewport ---
+const dotLinks = [...document.querySelectorAll(".dot-nav a")];
+if (dotLinks.length && "IntersectionObserver" in window) {
+  const byId = new Map(dotLinks.map((a) => [a.getAttribute("href").slice(1), a]));
+  const midIO = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries)
+        if (e.isIntersecting) {
+          dotLinks.forEach((a) => a.classList.remove("active"));
+          byId.get(e.target.id)?.classList.add("active");
+        }
+    },
+    { rootMargin: "-45% 0px -45% 0px" }
+  );
+  byId.forEach((_, id) => {
+    const sec = document.getElementById(id);
+    if (sec) midIO.observe(sec);
+  });
+}
+
+// --- floating register pill: appears past the hero, hides while #rsvp is on screen ---
+const pill = document.querySelector(".floating-register");
+const heroEl = document.querySelector(".hero");
+const rsvpEl = document.querySelector("#rsvp");
+if (pill && heroEl && rsvpEl && "IntersectionObserver" in window) {
+  let pastHero = false;
+  let rsvpVisible = false;
+  const update = () => (pill.hidden = !pastHero || rsvpVisible);
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; update(); }).observe(heroEl);
+  new IntersectionObserver(([e]) => { rsvpVisible = e.isIntersecting; update(); }).observe(rsvpEl);
+}
+
 // --- scroll reveals (hiding only applies under html.js, so no-JS sees everything) ---
 if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver(
