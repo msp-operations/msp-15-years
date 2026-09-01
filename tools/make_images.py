@@ -15,6 +15,8 @@ JOBS = {
     "maastricht-src.jpg": "maastricht",
     "oldbuilding-src.jpg": "oldbuilding",
     "tapijn-src.jpg": "tapijn",
+    "oldentrance-src.jpg": "oldentrance",
+    "oldatrium-src.jpg": "oldatrium",
 }
 
 def strip(im: Image.Image) -> Image.Image:
