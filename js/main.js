@@ -21,8 +21,8 @@ if (splash) {
 }
 
 const CONFIG = {
-  // Set to the Qualtrics registration URL when it exists; null = "opens soon" state.
-  rsvpUrl: null,
+  // The Qualtrics registration form (live since 1 Sep); null = "opens soon" state.
+  rsvpUrl: "https://maastrichtuniversity.eu.qualtrics.com/jfe/form/SV_8HvDkAm88ZOC9WC",
   // Set to the current registration count once it passes ~25; null hides the counter.
   attending: null,
   // The canonical shareable URL of this page (update if a custom domain lands).
@@ -38,10 +38,16 @@ if (CONFIG.rsvpUrl) {
   const url = src
     ? CONFIG.rsvpUrl + (CONFIG.rsvpUrl.includes("?") ? "&" : "?") + "src=" + encodeURIComponent(src)
     : CONFIG.rsvpUrl;
-  document.querySelectorAll(".js-rsvp").forEach((a) => (a.href = url));
+  document.querySelectorAll(".js-rsvp").forEach((a) => {
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
   const link = document.querySelector(".js-rsvp-link");
   if (link) {
     link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
     link.hidden = false;
   }
   const open = document.querySelector(".js-rsvp-open");
