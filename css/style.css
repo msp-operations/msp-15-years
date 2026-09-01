@@ -259,16 +259,6 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
   font-weight: 700; font-size: 1.15rem; cursor: pointer;
   list-style: none; position: relative; padding-right: 2rem;
 }
-.faq-list summary::-webkit-details-marker { display: none; }
-.faq-list summary::after {
-  content: ""; position: absolute; right: .25rem; top: .3em;
-  width: .6em; height: .6em;
-  border-right: 3px solid var(--coral); border-bottom: 3px solid var(--coral);
-  transform: rotate(45deg); transition: transform .2s;
-}
-.faq-list details[open] summary::after { transform: rotate(225deg); top: .5em; }
-.faq-list details[open] summary { margin-bottom: .6rem; }
-.faq-list p { font-size: 1rem; }
 
 
 /* questions (replaced the FAQ accordions, 1 Sep) */
