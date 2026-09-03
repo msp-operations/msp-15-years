@@ -359,3 +359,6 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
   }
   .js .reveal.in { opacity: 1; transform: none; }
 }
+
+/* Weekend card carries two sub-headings after body copy, so h3 needs breathing room */
+#weekend h3 { margin-top: 1.6rem; }
