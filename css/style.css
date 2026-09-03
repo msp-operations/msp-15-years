@@ -362,3 +362,7 @@ h2.two-line { font-size: clamp(1.75rem, 4.5vw, 2.9rem); margin-bottom: 2.5rem; }
 
 /* Weekend card carries two sub-headings after body copy, so h3 needs breathing room */
 #weekend h3 { margin-top: 1.6rem; }
+
+/* Two cards, so the shared three-column grid would leave a dead column */
+#alsoon .prog-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 640px) { #alsoon .prog-grid { grid-template-columns: 1fr; } }
