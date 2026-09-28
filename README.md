@@ -7,7 +7,7 @@ Deployed with GitHub Pages from `main`; push = live.
 ## Editing
 
 - All event state lives in `CONFIG` at the top of [`js/main.js`](js/main.js):
-  the `rsvpClosed` switch (true since 28 Sep 2026: buttons hidden, closed message shown),
+  the `rsvpClosed` switch (true = buttons hidden, closed message shown; false = open),
   the registration URL (null = "opens soon" state), the attendee counter
   (null = hidden), the canonical share URL, and the contact mailbox.
 - Content is plain HTML in `index.html`. Design tokens in `css/style.css`.
