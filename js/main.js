@@ -21,6 +21,9 @@ if (splash) {
 }
 
 const CONFIG = {
+  // Registration closed on 28 Sep 2026. true hides every register button and shows the
+  // closed message in #rsvp; set to false to reopen (rsvpUrl below is still the live form).
+  rsvpClosed: true,
   // The Qualtrics registration form (live since 1 Sep); null = "opens soon" state.
   rsvpUrl: "https://maastrichtuniversity.eu.qualtrics.com/jfe/form/SV_8HvDkAm88ZOC9WC",
   // Set to the current registration count once it passes ~25; null hides the counter.
@@ -33,7 +36,10 @@ const CONFIG = {
 };
 
 // --- RSVP state (forward the visitor's ?src channel tag onto the form URL) ---
-if (CONFIG.rsvpUrl) {
+if (CONFIG.rsvpClosed) {
+  document.querySelectorAll(".js-rsvp, .js-rsvp-link, .js-rsvp-open, .js-rsvp-closed").forEach((el) => (el.hidden = true));
+  document.querySelectorAll(".js-rsvp-done").forEach((el) => (el.hidden = false));
+} else if (CONFIG.rsvpUrl) {
   const src = new URLSearchParams(location.search).get("src");
   const url = src
     ? CONFIG.rsvpUrl + (CONFIG.rsvpUrl.includes("?") ? "&" : "?") + "src=" + encodeURIComponent(src)
@@ -108,7 +114,7 @@ if (dotLinks.length && "IntersectionObserver" in window) {
 const pill = document.querySelector(".floating-register");
 const heroEl = document.querySelector(".hero");
 const rsvpEl = document.querySelector("#rsvp");
-if (pill && heroEl && rsvpEl && "IntersectionObserver" in window) {
+if (pill && heroEl && rsvpEl && !CONFIG.rsvpClosed && "IntersectionObserver" in window) {
   let pastHero = false;
   let rsvpVisible = false;
   const update = () => (pill.hidden = !pastHero || rsvpVisible);
