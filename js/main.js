@@ -23,7 +23,7 @@ if (splash) {
 const CONFIG = {
   // true hides every register button and shows the closed message in #rsvp (used 28 Sep 2026,
   // reopened the same day); false = the form below is open.
-  rsvpClosed: false,
+  rsvpClosed: true,
   // The Qualtrics registration form (live since 1 Sep); null = "opens soon" state.
   rsvpUrl: "https://maastrichtuniversity.eu.qualtrics.com/jfe/form/SV_8HvDkAm88ZOC9WC",
   // Set to the current registration count once it passes ~25; null hides the counter.
